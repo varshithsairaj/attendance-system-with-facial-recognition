@@ -1,8 +1,8 @@
-##🎓 Smart Attendance System using Real-Time Face Recognition - “Unlocking Identity with Just a Glance.”
+## 🎓 Smart Attendance System using Real-Time Face Recognition - “Unlocking Identity with Just a Glance.”
  
 I’m thrilled to share the development of an AI-powered Smart Attendance System designed for educational institutions and security environments.
 
-##🔧 Technologies Used:
+## 🔧 Technologies Used:
 - Python for scripting & backend logic
 - OpenCV + YOLOv3 (yolov3.weights, yolov3.cfg, coco.names) for object and face detection
 - OpenFace (nn4.small2.v1.t7) for generating deep facial embeddings
@@ -23,10 +23,10 @@ I’m thrilled to share the development of an AI-powered Smart Attendance System
 - ✅ **Model Retraining**: Automatically retrains SVM when new faces are registered  
 
 
-##📂 Database Integration (MySql):
+## 📂 Database Integration (MySql):
 Student info: Name, Roll No, Registration
 Attendance: Timestamped records
 Summary Table: Days present, percentage stats
 
-##💡 Why It Matters:
+## 💡 Why It Matters:
  Manual attendance is time-consuming and error-prone. This system combines Computer Vision, ML, and Real-Time Communication to create a secure, efficient, and scalable attendance and surveillance solution — ideal for educational institutes and smart campuses.
