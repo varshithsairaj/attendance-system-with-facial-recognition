@@ -1,48 +1,32 @@
-# attendance-system-with-facial-recognition
-🎓 Smart Attendance System using Real-Time Face Recognition
-“Unlocking Identity with Just a Glance.”
+🎓 Smart Attendance System using Real-Time Face Recognition - “Unlocking Identity with Just a Glance.”
+ 
+I’m thrilled to share the development of an AI-powered Smart Attendance System designed for educational institutions and security environments.
 
-I’m thrilled to share the development of an AI-powered Smart Attendance System designed specifically for educational institutions and secure environments.
-
-🔧 Technologies Used
-Python – Scripting & backend logic
-
-OpenCV + YOLOv3 – Real-time object and face detection
-
-yolov3.weights, yolov3.cfg, coco.names
-
-OpenFace – Deep facial embeddings generation
-
-nn4.small2.v1.t7
-
-SVM (Support Vector Machine) – Face classification and recognition
-
-Flask-SocketIO – Real-time event communication
-
-MySQL – Persistent storage for student data and attendance logs
-
-Pickle – Model serialization
-
-embeddings.pickle, le.pickle, recognizer.pickle
-
-Imutils – Efficient video frame preprocessing
-
-🧠 Core Features
-✅ Face Registration – Capture 81 high-quality face images per student via webcam
-✅ Real-Time Recognition – Detects faces using YOLOv3 and recognizes them using OpenFace + SVM
-✅ Automated Attendance – Marks attendance in the database when confidence score exceeds 60%
-✅ Live Updates – Real-time logs, alerts, and events through Flask-SocketIO
-✅ Smart Summary – Maintains stats like total days present, attendance percentage, and logs
-✅ Model Retraining – Automatically retrains SVM model on every new face registration
-
-📂 Database Integration (MySQL)
-Student Table: Name, Roll Number, Registration info
-
-Attendance Table: Timestamped records per session
-
-Summary Table: Daily presence logs, calculated percentages
-
-💡 Why It Matters
-Manual attendance systems are time-consuming and error-prone. This AI-powered system blends Computer Vision, Machine Learning, and Real-Time Communication to deliver a scalable, secure, and automated solution — ideal for modern educational campuses and institutions looking to embrace smart technologies.
+🔧 Technologies Used:
+- Python for scripting & backend logic
+- OpenCV + YOLOv3 (yolov3.weights, yolov3.cfg, coco.names) for object and face detection
+- OpenFace (nn4.small2.v1.t7) for generating deep facial embeddings
+- SVM (Support Vector Machine) for accurate face recognition
+- Flask-SocketIO for real-time event communication
+- MySQL for storing student details and attendance logs
+- Pickle (embeddings.pickle, le.pickle, recognizer.pickle) for model serialization
+- Imutils for efficient frame processing
 
 
+ ## 🧠 Core Features
+
+- ✅ **Face Registration**: Capture 81 high-quality face images per student through webcam  
+- ✅ **Real-Time Recognition**: Detects faces using YOLOv3 and recognizes them with OpenFace + SVM  
+- ✅ **Automated Attendance**: Marks attendance in the DB if recognition confidence > 60%  
+- ✅ **Live Updates**: Uses Flask-SocketIO to send logs, alerts, and attendance events in real time  
+- ✅ **Smart Summary**: Maintains daily presence stats, percentages, and history  
+- ✅ **Model Retraining**: Automatically retrains SVM when new faces are registered  
+
+
+📂 Database Integration (MySql):
+Student info: Name, Roll No, Registration
+Attendance: Timestamped records
+Summary Table: Days present, percentage stats
+
+💡 Why It Matters:
+ Manual attendance is time-consuming and error-prone. This system combines Computer Vision, ML, and Real-Time Communication to create a secure, efficient, and scalable attendance and surveillance solution — ideal for educational institutes and smart campuses.
