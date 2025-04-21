@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Table Updates</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+
+    <!-- <h2>Live Database</h2> -->
+
+    <!-- Table 1 -->
+    <h3>Students</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Roll Number</th>
+            </tr>
+        </thead>
+        <tbody id="table1-body">
+            <!-- Data will be inserted dynamically -->
+        </tbody>
+    </table>
+
+    <!-- Table 2 -->
+    <h3>Attendance</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>student_id</th>
+                <th>timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="table2-body">
+            <!-- Data will be inserted dynamically -->
+        </tbody>
+    </table>
+
+    <!-- Table 3 -->
+    <h3>Attendance_summary</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>student_id</th>
+                <th>total_present</th>
+                <th>total_days</th>
+                <th>attendance_percentage</th>
+                <th>last_updated</th>
+            </tr>
+        </thead>
+        <tbody id="table3-body">
+            <!-- Data will be inserted dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        var socket = io();
+    
+        socket.on('update_table', function(data) {
+            // Update Table 1 (students)
+            let table1Body = document.getElementById('table1-body');
+            table1Body.innerHTML = '';
+            if (data.students) { // Check if students data exists
+                data.students.forEach(row => {
+                    let newRow = `<tr><td>${row.id}</td><td>${row.name}</td><td>${row.roll_number}</td></tr>`;
+                    table1Body.innerHTML += newRow;
+                });
+            }
+    
+            // Update Table 2 (attendance)
+            let table2Body = document.getElementById('table2-body');
+            table2Body.innerHTML = '';
+            if (data.attendance) { // Check if attendance data exists
+                data.attendance.forEach(row => {
+                    let newRow = `<tr><td>${row.id}</td><td>${row.student_id}</td><td>${row.timestamp}</td></tr>`;
+                    table2Body.innerHTML += newRow;
+                });
+            }
+    
+            // Update Table 3 (attendance_summary)
+            let table3Body = document.getElementById('table3-body');
+            table3Body.innerHTML = '';
+            if (data.attendance_summary) { // Check if attendance_summary data exists
+                data.attendance_summary.forEach(row => {
+                    let newRow = `<tr><td>${row.student_id}</td><td>${row.total_present}</td><td>${row.total_days}</td><td>${row.attendance_percentage}</td><td>${row.last_updated}</td></tr>`;
+                    table3Body.innerHTML += newRow;
+                });
+            }
+        });
+    </script>

@@ -1,0 +1,76 @@
+/* General Page Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    text-align: center;
+    margin: 10px;
+    line-height: 1.5;
+}
+
+/* Headings */
+h2, h3 {
+    color: #fefefe;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px; /* Increased margin below headings */
+}
+
+/* Table Styling */
+table {
+    width: 50%;
+    margin: 20px auto; /* Increased margin around tables */
+    border-collapse: collapse;
+    background: #1e1e1e;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 50px; /* Increased margin below tables */
+}
+
+/* Table Headers */
+th {
+    background-color: #0a0a0ae6;
+    color: white;
+    padding: 8px 10px;
+    border-bottom: 1px solid #000000;
+    text-align: left;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-size: 13px;
+}
+
+/* Table Rows */
+td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #333;
+    text-align: left;
+    color: #bdbdbd;
+    font-size: 13px;
+}
+
+/* Alternate Row Styling */
+tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+tr:nth-child(odd) {
+    background-color: #222222;
+}
+
+/* Hover Effect */
+tr:hover {
+    background-color: #3a3a3a;
+    transition: background-color 0.2s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    table {
+        width: 90%;
+    }
+    th, td {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+}

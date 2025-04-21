@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System</title>
+    <style>
+        body {
+            /* background-color: rgba(0, 0, 0, 0.938); */
+            background-color:black; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white; 
+            font-family: Arial, sans-serif;
+            margin-bottom: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        video, img {
+            width: 80%;
+            height: auto;
+            max-width: 570px;
+            margin-top: 20px;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 15px;
+            border: none;
+            background-color: #101214;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 2px solid rgb(133, 131, 131);
+        }
+        button:hover {
+            background-color: #13173d;
+        }
+
+        /* Star field effect */
+        .starfield {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            animation: stars 200s linear infinite;
+        }
+
+        
+        @keyframes stars {
+            0% { background-position: 0 0; }
+            100% { background-position: 10000px 10000px; }
+        }
+
+        .success-popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #293135;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.success-popup.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(10px);
+}
+
+
+       
+    </style>
+</head>
+<body>
+    <div class="starfield"></div>
+    <div class="comet"></div>
+    
+    <video autoplay loop muted>
+        <source src="{{ url_for('static', filename='attgif.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    
+    <div class="controls">
+        <button onclick="takeAttendance()">Take Attendance</button>
+        <button onclick="addStudent()">Add Student</button>
+        <button onclick="window.location.href='/dashboard'">Check Attendance</button>
+
+    </div>
+    
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+    
+        socket.on('attendance_message', function(data) {
+            alert(data.msg); // You can customize this into a toast or modal
+        });
+    </script>
+    
+    <script>
+        function takeAttendance() {
+    fetch('/take_attendance', {
+        method: 'POST'
+    })
+    .then(response => response.json())
+    .then(data => {
+        showSuccessMessage(data.status || "Attendance Taken Successfully!");
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Something went wrong while starting the attendance process.");
+    });
+}
+
+function showSuccessMessage(message) {
+    const popup = document.getElementById("successMessage");
+    popup.textContent = message;
+    popup.classList.add("show");
+
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 3000); // Show for 3 seconds
+}
+
+
+function addStudent() {
+    const name = prompt("Enter student name:");
+    const roll = prompt("Enter roll number:");
+
+    if (name && roll) {
+        fetch('/add_student', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, roll_number: roll })
+        })
+        .then(response => response.json())
+        .then(data => {
+            showSuccessMessage(data.status || "Student added successfully!");
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("Something went wrong while adding the student.");
+        });
+    } else {
+        alert("Both name and roll number are required.");
+    }
+}
+
+
+        function checkAttendance() {
+            window.location.href = "index.html";  // Redirect to index.html
+        }
+    </script>
+    <div id="successMessage" class="success-popup">✅ Attendance Taken Successfully!</div>
+
+</body>
+</html>
