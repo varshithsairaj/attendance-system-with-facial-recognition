@@ -25,13 +25,14 @@ I’m thrilled to share the development of an AI-powered Smart Attendance System
 
 ## 📂 Database Integration (MySql):
 Student info: Name, Roll No, Registration
-Attendance: Timestamped records
+Attendance: Timestamped records!
 Summary Table: Days present, percentage stats
 
 
 ## 💡 Why It Matters:
  Manual attendance is time-consuming and error-prone. This system combines Computer Vision, ML, and Real-Time Communication to create a secure, efficient, and scalable attendance and surveillance solution — ideal for educational institutes and smart campuses.
 
-<img src="https://github.com/user-attachments/assets/78e6b9cf-5f0a-40f9-8395-c35027eb5754" width="400"/>
+<img src="https://github.com/user-attachments/assets/78e6b9cf-5f0a-40f9-8395-c35027eb5754" width="400"/>  <img src="https://github.com/user-attachments/assets/1697517f-f5e7-4553-b60b-540d4e5511b5" width="400"/>
+
 
 
