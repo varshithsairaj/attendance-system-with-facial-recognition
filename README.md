@@ -32,5 +32,6 @@ Summary Table: Days present, percentage stats
 ## 💡 Why It Matters:
  Manual attendance is time-consuming and error-prone. This system combines Computer Vision, ML, and Real-Time Communication to create a secure, efficient, and scalable attendance and surveillance solution — ideal for educational institutes and smart campuses.
 
- ![Screenshot 2025-04-20 225335](https://github.com/user-attachments/assets/78e6b9cf-5f0a-40f9-8395-c35027eb5754) ![Screenshot 2025-04-20 205649](https://github.com/user-attachments/assets/e12381f9-a3c5-415e-b45f-dc7d910dccf9)
+<img src="https://github.com/user-attachments/assets/78e6b9cf-5f0a-40f9-8395-c35027eb5754" width="400"/>
+
 
